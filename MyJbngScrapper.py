@@ -1,14 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 
-cnt=0;
+count=0;                     ## count the number of products scrapped
 
-url = "http://www.jabong.com/shoes/Adidas/?tt=&rank=0&qc=adidas%20shoes"
+url = "http://www.jabong.com/shoes/Adidas/?tt=&rank=0&qc=adidas%20shoes"   ## url for first page
 r = requests.get(url)
 soup = BeautifulSoup(r.content, "html.parser")
 
 g_data = soup.find_all("section",{"class":"row search-product animate-products"})[0]
-##cnt=1;
 for items in g_data:
     try:
         img_url = items.contents[0].find_all("img")[0].get("src")
@@ -36,7 +35,7 @@ for items in g_data:
     print("Price : " +price)
     print("Available Sizes : " +str(avail_sizes))
     print("\n\n")
-    cnt=cnt+1;
-print(cnt)    
+    count=count+1;
+print(count)    
 
     
