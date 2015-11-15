@@ -40,7 +40,7 @@ for index in range(1,12):
 
         if(count==total_products):
             break;
-print(count)
+
         
     
 
