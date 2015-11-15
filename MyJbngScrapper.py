@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 count = 0
 for index in range(1,12):
-    url = "http://www.jabong.com/shoes/Adidas/?tt=&rank=0&qc=adidas%20shoes&page=" + str(index) + "&limit=52"
+    url = "http://www.jabong.com/shoes/Adidas--adidas-originals--Nike--Puma--Red_Chief--Red_Tape--top-shop--Van_Heusen--vans--Woodland/?tt=shoes&rank=1&qc=shoes&page=" + str(index) + "&limit=200"
     r = requests.get(url)
     soup = BeautifulSoup(r.content, "html.parser")
     g_data = soup.find_all("section",{"class":"row search-product animate-products"})[0]
@@ -31,19 +31,17 @@ for index in range(1,12):
         except:
             pass
         
-        print("Image = " +img_url)
+        print("Image_url = " +img_url)
         print("Product Name : " +name)
-        print("Price : " +price)
+        print("Price(INR) : " +price)
         print("Available Sizes : " +str(avail_sizes))
-        print("\n\n")
-
-        index = index + 1;
+        print("\n")
         count=count+1;
 
         if(count==total_products):
             break;
-
+print(count)
         
-print(count)    
+    
 
     
